@@ -18,12 +18,17 @@ import Card from "./Card";
   const [currCardIdx, setCurrCardIdx] = useState(0);
 
   const currCard = photos[currCardIdx];
-  console.log(photos)
   const total = photos.length;
+  console.log(total)
 
   //Increments currCardIdx state by 1
   function goForward() {
     setCurrCardIdx(currCardIdx + 1);
+  }
+
+  //Increments currCardIdx state by 1
+  function goBackward() {
+    setCurrCardIdx(currCardIdx - 1);
   }
 
   return (
@@ -31,8 +36,8 @@ import Card from "./Card";
       <h1>{title}</h1>
       <div className="Carousel-main">
         <i
-          className="bi bi-arrow-left-circle"
-          onClick={goForward}
+          className={currCardIdx === 0? null : "bi bi-arrow-left-circle"}
+          onClick={goBackward}
         />
         <Card
           caption={currCard.caption}
@@ -40,8 +45,9 @@ import Card from "./Card";
           currNum={currCardIdx + 1}
           totalNum={total}
         />
+        {}
         <i
-          className="bi bi-arrow-right-circle"
+          className={currCardIdx === total - 1? null : "bi bi-arrow-right-circle"}
           onClick={goForward}
         />
       </div>
