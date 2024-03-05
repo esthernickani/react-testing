@@ -63,7 +63,6 @@ it("works when you click on the left arrow", function() {
   // move forward in the carousel
   const rightArrow = container.querySelector(".bi-arrow-right-circle");
   fireEvent.click(rightArrow);
-  fireEvent.click(rightArrow);
 
   // move backward in the carousel
   const leftArrow = container.querySelector(".bi-arrow-left-circle");
@@ -71,10 +70,10 @@ it("works when you click on the left arrow", function() {
 
   // expect the second image to show, but not the first
   expect(
-    container.querySelector('img[alt="testing image 1"]')
+    container.querySelector('img[alt="testing image 2"]')
   ).not.toBeInTheDocument();
   expect(
-    container.querySelector('img[alt="testing image 2"]')
+    container.querySelector('img[alt="testing image 1"]')
   ).toBeInTheDocument();
 });
 
@@ -104,6 +103,7 @@ it("hides the right arrow when on the last element", function() {
 
   const rightArrow = container.querySelector(".bi-arrow-right-circle");
   console.log(rightArrow)
+  fireEvent.click(rightArrow)
   fireEvent.click(rightArrow)
   fireEvent.click(rightArrow)
 
